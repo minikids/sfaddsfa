@@ -53,14 +53,14 @@ async function handleWebhook(request, response) {
     } else {
       console.error("🚨 Cohere API did not return 'text' field.");
       response.json({
-        fulfillmentText: ""
+        fulfillmentText: "Answer too long to be said. Please try another question."
       });
     }
 
   } catch (error) {
     console.error("❌ Error calling Cohere API:", error);
     response.json({
-      fulfillmentText: ""
+      fulfillmentText: "An error occured. Please try again later."
     });
   }
 }
